@@ -4,16 +4,20 @@
 #
 Name     : R-units
 Version  : 0.6.2
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/units_0.6-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/units_0.6-2.tar.gz
 Summary  : Measurement Units for R Vectors
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-units-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-pillar
+Requires: R-cli
+Requires: R-markdown
+Requires: R-mime
 BuildRequires : R-Rcpp
+BuildRequires : R-cli
+BuildRequires : R-markdown
+BuildRequires : R-mime
 BuildRequires : R-pillar
 BuildRequires : buildreq-R
 BuildRequires : expat-dev
@@ -38,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551635305
+export SOURCE_DATE_EPOCH=1552841704
 
 %install
-export SOURCE_DATE_EPOCH=1551635305
+export SOURCE_DATE_EPOCH=1552841704
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -77,8 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library units|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  units || :
 
 
 %files
@@ -119,16 +122,27 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/units/html/00Index.html
 /usr/lib64/R/library/units/html/R.css
 /usr/lib64/R/library/units/include/units.h
-/usr/lib64/R/library/units/libs/symbols.rds
 /usr/lib64/R/library/units/share/udunits/udunits2-accepted.xml
 /usr/lib64/R/library/units/share/udunits/udunits2-base.xml
 /usr/lib64/R/library/units/share/udunits/udunits2-common.xml
 /usr/lib64/R/library/units/share/udunits/udunits2-derived.xml
 /usr/lib64/R/library/units/share/udunits/udunits2-prefixes.xml
 /usr/lib64/R/library/units/share/udunits/udunits2.xml
+/usr/lib64/R/library/units/tests/plot.R
+/usr/lib64/R/library/units/tests/set_units.R
+/usr/lib64/R/library/units/tests/testthat.R
+/usr/lib64/R/library/units/tests/testthat/test_arith.R
+/usr/lib64/R/library/units/tests/testthat/test_conversion.R
+/usr/lib64/R/library/units/tests/testthat/test_math.R
+/usr/lib64/R/library/units/tests/testthat/test_misc.R
+/usr/lib64/R/library/units/tests/testthat/test_mixed.R
+/usr/lib64/R/library/units/tests/testthat/test_summaries.R
+/usr/lib64/R/library/units/tests/testthat/test_symbolic_units.R
+/usr/lib64/R/library/units/tests/testthat/test_time.R
+/usr/lib64/R/library/units/tests/testthat/test_udunits.R
+/usr/lib64/R/library/units/tests/testthat/test_unit_creation.R
+/usr/lib64/R/library/units/tests/testthat/test_user_conversion.R
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/units/libs/units.so
-/usr/lib64/R/library/units/libs/units.so.avx2
-/usr/lib64/R/library/units/libs/units.so.avx512
