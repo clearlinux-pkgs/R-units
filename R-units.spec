@@ -4,7 +4,7 @@
 #
 Name     : R-units
 Version  : 0.6.5
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/units_0.6-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/units_0.6-5.tar.gz
 Summary  : Measurement Units for R Vectors
