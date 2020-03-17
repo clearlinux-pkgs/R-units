@@ -1,8 +1,4 @@
-0.6.5
-R-Rcpp
-R-cli
-R-markdown
-R-mime
+0.6.6
 R-pillar
 expat-dev
 udunits-dev
