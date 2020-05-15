@@ -4,7 +4,7 @@
 #
 Name     : R-units
 Version  : 0.6.6
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/units_0.6-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/units_0.6-6.tar.gz
 Summary  : Measurement Units for R Vectors
@@ -12,9 +12,7 @@ Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-units-lib = %{version}-%{release}
 Requires: R-Rcpp
-Requires: R-pillar
 BuildRequires : R-Rcpp
-BuildRequires : R-pillar
 BuildRequires : buildreq-R
 BuildRequires : expat-dev
 BuildRequires : udunits-dev
@@ -32,21 +30,22 @@ lib components for the R-units package.
 
 %prep
 %setup -q -c -n units
+cd %{_builddir}/units
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584463011
+export SOURCE_DATE_EPOCH=1589583163
 
 %install
-export SOURCE_DATE_EPOCH=1584463011
+export SOURCE_DATE_EPOCH=1589583163
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
