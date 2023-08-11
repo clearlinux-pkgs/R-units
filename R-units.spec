@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-units
-Version  : 0.8.2
-Release  : 46
-URL      : https://cran.r-project.org/src/contrib/units_0.8-2.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/units_0.8-2.tar.gz
+Version  : 0.8.3
+Release  : 47
+URL      : https://cran.r-project.org/src/contrib/units_0.8-3.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/units_0.8-3.tar.gz
 Summary  : Measurement Units for R Vectors
 Group    : Development/Tools
 License  : GPL-2.0
@@ -34,16 +34,19 @@ lib components for the R-units package.
 
 %prep
 %setup -q -n units
+pushd ..
+cp -a units buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683149080
+export SOURCE_DATE_EPOCH=1691718351
 
 %install
-export SOURCE_DATE_EPOCH=1683149080
+export SOURCE_DATE_EPOCH=1691718351
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,6 +84,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
