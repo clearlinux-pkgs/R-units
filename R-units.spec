@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-units
-Version  : 0.8.3
-Release  : 47
-URL      : https://cran.r-project.org/src/contrib/units_0.8-3.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/units_0.8-3.tar.gz
+Version  : 0.8.4
+Release  : 48
+URL      : https://cran.r-project.org/src/contrib/units_0.8-4.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/units_0.8-4.tar.gz
 Summary  : Measurement Units for R Vectors
 Group    : Development/Tools
 License  : GPL-2.0
@@ -43,10 +43,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691718351
+export SOURCE_DATE_EPOCH=1694709272
 
 %install
-export SOURCE_DATE_EPOCH=1691718351
+export SOURCE_DATE_EPOCH=1694709272
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -134,6 +134,7 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/ggplot2-lab.svg
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/ggplot2-manual.svg
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/ggplot2-nolab.svg
+/usr/lib64/R/library/units/tests/testthat/_snaps/plot/ggplot2-trans-unit.svg
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/ggplot2-transformed.svg
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/plot-boxplot.svg
 /usr/lib64/R/library/units/tests/testthat/_snaps/plot/plot-default.svg
