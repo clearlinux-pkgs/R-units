@@ -1,6 +1,9 @@
 Configure miss: _Bool
 Configure miss: _Bool
 Configure miss: _Bool
+Configure miss: brew
+Configure miss: brew
+Configure miss: brew
 Configure miss: g++ -std=gnu++17 option to enable C++11 features
 Configure miss: g++ -std=gnu++17 option to enable C++11 features
 Configure miss: g++ -std=gnu++17 option to enable C++11 features
